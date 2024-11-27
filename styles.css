@@ -7,6 +7,9 @@ body {
     line-height: 1.6;
 }
 
+.logo{
+    color: gold;
+}
 /* Navbar */
 .navbar {
     display: flex;
