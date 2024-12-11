@@ -220,3 +220,87 @@ footer {
     background: #0072ff;
     color: #fff;
 }
+/* General Responsive Styles */
+@media (max-width: 768px) {
+  /* Navbar */
+  .navbar {
+    flex-direction: column; /* Stack the navbar items */
+    gap: 10px; /* Add spacing between items */
+  }
+
+  .nav-links {
+    flex-direction: column; /* Stack links vertically */
+    gap: 15px; /* Add spacing between links */
+  }
+
+  /* Sections */
+  .section {
+    padding: 40px 15px; /* Reduce padding */
+  }
+
+  .home {
+    padding: 20px; /* Add padding for content alignment */
+    text-align: center;
+  }
+
+  .home h1 {
+    font-size: 1.8rem; /* Adjust font size */
+  }
+
+  .content-img {
+    width: 100%; /* Use full width of the container */
+    height: auto; /* Maintain aspect ratio */
+  }
+
+  /* Skills Section */
+  .skills-container {
+    flex-direction: column; /* Stack skills vertically */
+    align-items: center; /* Center-align skills */
+  }
+
+  .skill {
+    width: 90%; /* Adjust width for better fit */
+  }
+
+  /* Portfolio Section */
+  .projects {
+    grid-template-columns: 1fr; /* Single-column layout */
+    gap: 15px; /* Reduce gap between projects */
+  }
+
+  .project {
+    margin: 0 auto; /* Center-align the project */
+    width: 90%; /* Adjust width */
+  }
+
+  /* Contact Section */
+  .contact form {
+    width: 95%; /* Use more of the container's width */
+    padding: 10px; /* Add padding for better spacing */
+  }
+
+  .contact input, .contact textarea, .btn {
+    font-size: 1rem; /* Adjust font size for readability */
+  }
+
+  /* Footer */
+  footer {
+    font-size: 0.9rem; /* Adjust font size */
+    padding: 15px; /* Increase padding for touch-friendly UI */
+  }
+
+  /* Back-to-Top Button */
+  .back-to-top {
+    width: 40px; /* Reduce size */
+    height: 40px;
+    padding: 8px;
+  }
+
+  /* Dark/Light Mode Toggle */
+  .theme-toggle {
+    width: 40px; /* Reduce size */
+    height: 40px;
+    padding: 8px;
+  }
+}
+
