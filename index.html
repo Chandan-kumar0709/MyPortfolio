@@ -1,127 +1,438 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chandan Kumar Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chandan Kumar — Portfolio</title>
+  <meta name="description" content="Chandan Kumar — Frontend Developer & MCA (Uttaranchal University). Projects, resume, and Wildlife Diversity & Conservation capstone." />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter','system-ui','Segoe UI','Roboto','sans-serif'] },
+          colors: { brand: { 50:'#eef9ff',100:'#d6f1ff',200:'#afe2ff',300:'#7ecfff',400:'#49b6ff',500:'#1998ff',600:'#0e79db',700:'#0a5fb1',800:'#0c4d8d',900:'#0f3f72' }},
+          boxShadow: { glow: '0 0 40px rgba(25,152,255,.35)'}
+        }
+      },
+      darkMode: 'class'
+    }
+  </script>
+
+  <style>
+    html{scroll-behavior:smooth}
+    /* scroll reveal */
+    .reveal{opacity:0; transform:translateY(18px); transition:all .7s ease}
+    .reveal.visible{opacity:1; transform:none}
+    /* floating */
+    .float{animation:float 6s ease-in-out infinite}
+    @keyframes float{0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)}}
+    /* gradient ring glow */
+    .ring-grad{position:relative}
+    .ring-grad:before{content:""; position:absolute; inset:-4px; border-radius:1.25rem; background:conic-gradient(from 180deg,#49b6ff,#7ecfff,#1998ff,#0a5fb1,#49b6ff); filter:blur(10px); opacity:.5; z-index:-1}
+  </style>
 </head>
-<body>
-    <!-- Navbar -->
-    <header>
-        <nav class="navbar">
-            <a href="#home" class="logo">Chandan Kumar</a>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="font-sans bg-slate-950 text-slate-100">
 
-    <!-- Home Section -->
-    <section id="home" class="section home">
-        <div class="content">
-            <img src="./image/ChandanPIC7.jpeg" alt="wait..." class="content-img">
-            <h1>Hi, I'm <span>Chandan Kumar</span></h1>
-            <p>Aspiring Frontend Developer | MCA Student</p>
-            <a href="#portfolio" class="btn">View My Work</a>
+  <!-- ===== NAVBAR ===== -->
+  <header class="fixed top-0 inset-x-0 z-50">
+    <nav id="navbar" class="transition-all">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between py-4">
+          <a href="#home" class="text-xl sm:text-2xl font-extrabold tracking-tight"><span class="text-white">Chandan</span> <span class="text-brand-400">Kumar</span></a>
+
+          <div class="flex items-center gap-2">
+            <button id="themeBtn" class="hidden sm:inline-flex p-2 rounded-lg ring-1 ring-white/10 hover:ring-white/30" aria-label="Toggle theme"><i class="fa-solid fa-circle-half-stroke"></i></button>
+            <button id="menuBtn" class="sm:hidden p-2 rounded-lg ring-1 ring-white/10 hover:ring-white/30" aria-label="Open menu"><i class="fa-solid fa-bars"></i></button>
+          </div>
+
+          <ul class="hidden sm:flex gap-6 text-sm">
+            <li><a class="hover:text-brand-300" href="#about">About</a></li>
+            <li><a class="hover:text-brand-300" href="#skills">Skills</a></li>
+            <li><a class="hover:text-brand-300" href="#experience">Experience</a></li>
+            <li><a class="hover:text-brand-300" href="#projects">Projects</a></li>
+            <li><a class="hover:text-brand-300" href="#wildlife">Wildlife Project</a></li>
+            <li><a class="hover:text-brand-300" href="#resume">Resume</a></li>
+            <li><a class="hover:text-brand-300" href="#contact">Contact</a></li>
+          </ul>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="section about">
-        <h2>About Me</h2>
-        <p>
-            <h3><u>Welcome to my portfolio!</u></h3>
-
-My name is <strong>Chandan Kumar</strong>, a highly motivated and passionate individual with a strong foundation in <strong>programming, web development, and problem-solving.</strong> I am currently pursuing my <b>Master of Computer Applications (MCA)</b> from <b>Uttaranchal University, Dehradun, </b> with a focus on mastering the latest technologies and methodologies in software development.
-
-Having graduated with a <b>Bachelor's in Computer Applications (BCA) </b>from <b> T.N.B. College Bhagalpur,</b> I honed my skills in frontend and backend development, tackling challenging projects and cultivating a deep understanding of building user-friendly software solutions.
-
-I specialize in:
-<ul style="text-align: left;">
-<li><strong>Frontend Development:</strong> HTML, CSS, JavaScript, ReactJS, Tailwind CSS, Bootstrap.</li>
-<li><strong>Backend Development:</strong> PHP, MySQL, NodeJS.</li>
-<li><strong>Programming Languages:</strong> Python, C, C++, Java, and Data Structures & Algorithms.</li>
-<li><strong>Tools & Technologies:</strong> Git for version control, responsive design techniques, and cross-browser compatibility.</li>
-</ul>
-<h3><u>Why Choose Me?</u></h3>
-I am driven by a passion for innovation and creativity. My goal is to develop dynamic and engaging web applications that meet user needs effectively. I have completed hands-on projects like a Student Library Management System, a Myntra Clone, and a Calculator, demonstrating my capability to turn ideas into reality.
-
-<h3><u>Looking Ahead</u></h3>
-I aspire to dive into cutting-edge fields like AI, Machine Learning, and Cloud Computing while continuing to work on impactful projects that contribute positively to the tech industry. As a detail-oriented and collaborative team player, I aim to leave a meaningful mark in every endeavor I undertake.
-
-Explore my portfolio and feel free to connect. Let’s create something amazing together!
-        </p>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section skills">
-        <h2>Skills</h2>
-        <div class="skills-container">
-            <div class="skill">
-                <i class="fas fa-code"></i>
-                <h3>Frontend Development</h3>
-                <p>HTML, CSS, JavaScript, Bootstrap, Tailwind CSS, ReactJS</p>
-            </div>
-            <div class="skill">
-                <i class="fas fa-database"></i>
-                <h3>Backend Development</h3>
-                <p>PHP, MySQL, NodeJS</p>
-            </div>
-            <div class="skill">
-                <i class="fas fa-laptop-code"></i>
-                <h3>Programming</h3>
-                <p>Python, C, C++, Java</p>
-            </div>
+      </div>
+      <div id="mobileMenu" class="hidden sm:hidden border-t border-white/5 bg-slate-900/90">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex flex-col gap-3 text-sm">
+          <a class="hover:text-brand-300" href="#about">About</a>
+          <a class="hover:text-brand-300" href="#skills">Skills</a>
+          <a class="hover:text-brand-300" href="#experience">Experience</a>
+          <a class="hover:text-brand-300" href="#projects">Projects</a>
+          <a class="hover:text-brand-300" href="#wildlife">Wildlife Project</a>
+          <a class="hover:text-brand-300" href="#resume">Resume</a>
+          <a class="hover:text-brand-300" href="#contact">Contact</a>
         </div>
-    </section>
+      </div>
+    </nav>
+  </header>
 
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="section portfolio">
-        <h2>Portfolio</h2>
-        <div class="projects">
-            <div class="project">
-                <img src="./image/LMS.jfif" alt="Library Management">
-                <div class="overlay">
-                    <h3>Library Management System</h3>
-                </div>
-            </div>
-            <div class="project">
-                <img src="./image/Myntraclone.png" alt="Myntra Clone">
-                <div class="overlay">
-                    <h3>Myntra Clone</h3>
-                </div>
-            </div>
-            <div class="project">
-                <img src="./image/Calculator.jpg" alt="Calculator">
-                <div class="overlay">
-                    <h3>Calculator</h3>
-                </div>
-            </div>
+  <!-- ===== HERO ===== -->
+  <section id="home" class="relative overflow-hidden pt-28 sm:pt-32">
+    <div class="absolute inset-0 -z-10 opacity-30 blur-3xl" aria-hidden>
+      <div class="bg-gradient-to-tr from-brand-500/60 via-fuchsia-500/40 to-cyan-400/40 w-[80vw] h-[80vw] max-w-[900px] rounded-full mx-auto mt-[-20vh]"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-center">
+      <div class="reveal">
+        <p class="uppercase tracking-widest text-brand-300/80 text-xs">Frontend Developer • MCA (Uttaranchal University)</p>
+        <h1 class="mt-3 text-4xl sm:text-5xl font-extrabold leading-tight">Hi, I'm <span class="text-brand-400">Chandan Kumar</span></h1>
+        <p class="mt-4 text-lg text-slate-300">I build modern, responsive and animated web experiences using <b>HTML</b>, <b>CSS/Tailwind</b>, <b>JavaScript</b> and <b>React</b>. I also teach programming and run coaching centers, mentoring the next wave of developers.</p>
+        <p class="mt-2 text-slate-300">Capstone: <span class="font-semibold">Wildlife Diversity & Conservation Portal</span> — multi‑page, JSON‑driven, education‑friendly.</p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#projects" class="ring-grad inline-flex items-center gap-2 rounded-xl bg-slate-900 px-5 py-3 text-sm font-semibold shadow-glow"><i class="fa-solid fa-rocket"></i> View Projects</a>
+          <a href="#resume" class="inline-flex items-center gap-2 rounded-xl border border-white/10 px-5 py-3 text-sm font-semibold hover:bg-white/5"><i class="fa-solid fa-file-arrow-down"></i> Resume</a>
         </div>
-    </section>
+        <div class="mt-8 grid grid-cols-3 gap-4 text-center">
+          <div class="rounded-2xl border border-white/10 p-4 float"><div class="text-2xl font-extrabold counter" data-count="4">0</div><div class="text-xs text-slate-400">Years Teaching</div></div>
+          <div class="rounded-2xl border border-white/10 p-4 float" style="animation-delay:.6s"><div class="text-2xl font-extrabold counter" data-count="20">0</div><div class="text-xs text-slate-400">Projects</div></div>
+          <div class="rounded-2xl border border-white/10 p-4 float" style="animation-delay:1.2s"><div class="text-2xl font-extrabold counter" data-count="150">0</div><div class="text-xs text-slate-400">Students Mentored</div></div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="relative mx-auto w-64 sm:w-80 h-64 sm:h-80 rounded-3xl overflow-hidden ring-1 ring-white/10 shadow-2xl shadow-brand-500/20">
+          <img src="./image/ChandanPIC7.jpeg" alt="Chandan Kumar" class="absolute inset-0 w-full h-full object-cover" />
+        </div>
+        <div class="mt-4 flex items-center gap-3 text-sm text-slate-300"><i class="fa-solid fa-location-dot text-brand-300"></i> Vishhari Asthan, Thana Road, Choudhary Tola, Kahalgaon — Bhagalpur, Bihar (813203)</div>
+      </div>
+    </div>
+  </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-        <h2>Contact Me</h2>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit" class="btn">Send Message</button>
-        </form>
-        <p>Email: <a href="mailto:kumarchandan99990@gmail.com">kumarchandan99990@gmail.com</a></p>
-        <p>Phone: <a href="tel:+917909058148">+91 7909058148</a></p>
-    </section>
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-12 items-start">
+      <div class="reveal">
+        <h2 class="text-3xl font-bold">About Me</h2>
+        <p class="mt-4 text-slate-300">I'm a frontend developer and educator with a strong foundation in <b>web technologies</b> and <b>problem‑solving</b>. I completed my <b>BCA</b> from <b>T.N.B. College, Bhagalpur</b> and I'm in my final semester of <b>MCA</b> at <b>Uttaranchal University, Dehradun</b>.</p>
+        <p class="mt-3 text-slate-300">I run <b>Basic Concept Class</b> (since 2021) and <b>Computer Programming Classes</b>, teaching students (Classes 5–10) and mentoring BCA/MCA learners in programming (C, C++, Java, Python, C#, Frontend & Backend). I also founded <b>FHC Company</b> (running since 2023) to build real‑world web projects and create opportunities for freshers.</p>
+        <div class="mt-6 flex gap-3 text-sm">
+          <a href="mailto:kumarchandan99990@gmail.com" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-white/10 hover:bg-white/5"><i class="fa-solid fa-envelope"></i> Email</a>
+          <a href="tel:+917909058148" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-white/10 hover:bg-white/5"><i class="fa-solid fa-phone"></i> +91 7909058148</a>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="rounded-3xl border border-white/10 p-6">
+          <h3 class="text-xl font-semibold">Tech Stack</h3>
+          <div class="mt-4 grid grid-cols-2 sm:grid-cols-3 gap-3 text-sm">
+            <div class="rounded-xl bg-slate-900/60 p-3">HTML • CSS • Tailwind</div>
+            <div class="rounded-xl bg-slate-900/60 p-3">JavaScript • React</div>
+            <div class="rounded-xl bg-slate-900/60 p-3">Bootstrap</div>
+            <div class="rounded-xl bg-slate-900/60 p-3">Node.js • Express</div>
+            <div class="rounded-xl bg-slate-900/60 p-3">PHP • MySQL</div>
+            <div class="rounded-xl bg-slate-900/60 p-3">Python • C/C++ • Java</div>
+            <div class="rounded-xl bg-slate-900/60 p-3">Git & GitHub</div>
+            <div class="rounded-xl bg-slate-900/60 p-3">JSON‑first APIs</div>
+            <div class="rounded-xl bg-slate-900/60 p-3">A11y • Cross‑browser</div>
+          </div>
+          <div class="mt-6">
+            <h4 class="font-semibold mb-2">Skill Confidence</h4>
+            <div class="space-y-3">
+              <SkillBar label="HTML/CSS/Tailwind" value="95" />
+              <SkillBar label="JavaScript/React" value="85" />
+              <SkillBar label="Node.js/Express" value="70" />
+              <SkillBar label="PHP/MySQL" value="75" />
+              <SkillBar label="Python/DSA" value="80" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <p>© 2024 Chandan Kumar. All rights reserved.</p>
-    </footer>
+  <!-- ===== SKILLS QUICK TAGS ===== -->
+  <section id="skills" class="py-14 bg-slate-900/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold reveal">Skills</h2>
+      <div class="mt-6 flex flex-wrap gap-2 reveal">
+        <span class="px-3 py-1 rounded-full text-xs bg-slate-900/60 border border-white/10">Responsive UI</span>
+        <span class="px-3 py-1 rounded-full text-xs bg-slate-900/60 border border-white/10">Animations</span>
+        <span class="px-3 py-1 rounded-full text-xs bg-slate-900/60 border border-white/10">REST/JSON</span>
+        <span class="px-3 py-1 rounded-full text-xs bg-slate-900/60 border border-white/10">State mgmt</span>
+        <span class="px-3 py-1 rounded-full text-xs bg-slate-900/60 border border-white/10">Accessibility</span>
+        <span class="px-3 py-1 rounded-full text-xs bg-slate-900/60 border border-white/10">Testing</span>
+        <span class="px-3 py-1 rounded-full text-xs bg-slate-900/60 border border-white/10">Version Control</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== EXPERIENCE ===== -->
+  <section id="experience" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold">Experience & Education</h2>
+      <div class="mt-10 grid lg:grid-cols-2 gap-8">
+        <div class="reveal">
+          <h3 class="font-semibold text-brand-300">Education</h3>
+          <ul class="mt-4 space-y-5">
+            <li class="rounded-2xl border border-white/10 p-5">
+              <div class="flex items-center justify-between"><div class="font-semibold">MCA — Uttaranchal University, Dehradun</div><span class="text-xs text-slate-400">2023–2025</span></div>
+              <p class="text-sm text-slate-300 mt-2">Final semester. Capstone on Wildlife Diversity & Conservation Portal (full‑stack, Tailwind, JS/Node, JSON‑first). Guide: Bijay Kumar Pandey. Learner ID: 2316010195.</p>
+            </li>
+            <li class="rounded-2xl border border-white/10 p-5">
+              <div class="flex items-center justify-between"><div class="font-semibold">BCA — T.N.B. College, Bhagalpur</div><span class="text-xs text-slate-400">Completed</span></div>
+              <p class="text-sm text-slate-300 mt-2">Strong base in programming, DSA & web development.</p>
+            </li>
+          </ul>
+        </div>
+        <div class="reveal">
+          <h3 class="font-semibold text-brand-300">Work & Teaching</h3>
+          <ul class="mt-4 space-y-5">
+            <li class="rounded-2xl border border-white/10 p-5"><div class="flex items-center justify-between"><div class="font-semibold">Founder & Instructor — Basic Concept Class</div><span class="text-xs text-slate-400">2021–Present</span></div><p class="text-sm text-slate-300 mt-2">Maths & Science (Classes 5–10), plus programming mentorship for BCA/MCA.</p></li>
+            <li class="rounded-2xl border border-white/10 p-5"><div class="flex items-center justify-between"><div class="font-semibold">Computer Programming Classes</div><span class="text-xs text-slate-400">Ongoing</span></div><p class="text-sm text-slate-300 mt-2">Courses: C, C++, Java, Python, C#, Frontend & Backend. Address: Vishhari Asthan, Thana Road, Choudhary Tola, Kahalgaon — 813203.</p></li>
+            <li class="rounded-2xl border border-white/10 p-5"><div class="flex items-center justify-between"><div class="font-semibold">Founder — FHC Company</div><span class="text-xs text-slate-400">2023–Present</span></div><p class="text-sm text-slate-300 mt-2">Web dev company offering real‑world work and career opportunities for freshers.</p></li>
+            <li class="rounded-2xl border border-white/10 p-5"><div class="flex items-center justify-between"><div class="font-semibold">Internships</div><span class="text-xs text-slate-400">2024–2025</span></div><p class="text-sm text-slate-300 mt-2">InternPe & TECHOCTANET — front‑end projects and training.</p></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects" class="py-20 bg-slate-900/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-end justify-between gap-4">
+        <h2 class="text-3xl font-bold">Featured Projects</h2>
+        <div class="text-xs text-slate-400">Tap a card for details</div>
+      </div>
+      <div class="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <ProjectCard title="Student Library Management System" img="./image/LMS.jfif" tags="HTML,CSS,JS" desc="Issue/return flows, search & filters, localStorage persistence, animated modals and toasts." link="#" />
+        <ProjectCard title="Myntra Clone" img="./image/Myntraclone.png" tags="HTML,CSS,JS" desc="Responsive e‑commerce UI, product grid, cart & wishlist with smooth transitions." link="#" />
+        <ProjectCard title="Scientific Calculator" img="./image/Calculator.jpg" tags="HTML,CSS,JS" desc="Keyboard support, theme toggle, precise math with debounced input." link="#" />
+        <ProjectCard title="Tic‑Tac‑Toe (Responsive)" img="./image/tictactoe.jpg" tags="HTML,CSS,JS" desc="Adaptive grid, score tracker, header with real‑time Kolkata date/time." link="#" />
+        <ProjectCard title="Basic Concept Class — Site" img="./image/bcc.jpg" tags="Node,Tailwind,JS" desc="Admissions form, course catalog, announcements (JSON‑backed)." link="#" />
+        <ProjectCard title="FHC Company — Portfolio" img="./image/fhc.jpg" tags="Tailwind,JS" desc="Company site: services, team, and careers for freshers." link="#" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WILDLIFE PROJECT (DETAILED) ===== -->
+  <section id="wildlife" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-3xl font-bold reveal">Wildlife Diversity & Conservation Portal (MCA Capstone)</h2>
+      <p class="mt-3 text-slate-300 reveal">A multi‑page, fully responsive portal highlighting India's wildlife diversity with interactive exploration and student‑friendly learning tracks. Built with Tailwind + Vanilla JS (optional Node.js backend) and a <b>JSON‑first</b> content system for species, states, and conservation projects.</p>
+
+      <div class="grid lg:grid-cols-3 gap-6 mt-8">
+        <div class="rounded-2xl border border-white/10 p-6 reveal">
+          <h3 class="font-semibold">Key Modules</h3>
+          <ul class="mt-3 space-y-2 text-sm list-disc list-inside text-slate-300">
+            <li>Species Profiles (Tiger, Elephant, etc.) with habitat, diet, IUCN status.</li>
+            <li>State‑wise Presence: filterable views & basic map overlays.</li>
+            <li>Conservation Projects: Govt/NGO initiatives with milestones.</li>
+            <li>Media Gallery: images, infographics & short explainers.</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border border-white/10 p-6 reveal">
+          <h3 class="font-semibold">Tech & Architecture</h3>
+          <ul class="mt-3 space-y-2 text-sm list-disc list-inside text-slate-300">
+            <li>Frontend: HTML + Tailwind + Vanilla JS (no heavy frameworks).</li>
+            <li>Routing: multi‑page with shared components.</li>
+            <li>Storage: JSON schemas for <code>species.json</code>, <code>states.json</code>, <code>projects.json</code>.</li>
+            <li>Performance: lazy images, code splitting, minified assets.</li>
+            <li>Accessibility: keyboard nav, labeled controls, color contrast.</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border border-white/10 p-6 reveal">
+          <h3 class="font-semibold">Sample Data Model</h3>
+          <pre class="mt-3 text-xs bg-slate-900/60 p-3 rounded-xl overflow-x-auto"><code>{
+  "species": [
+    {
+      "id": "tiger",
+      "name": "Bengal Tiger",
+      "habitat": ["grasslands","tropical forests"],
+      "states": ["MP","MH","WB","Assam"],
+      "status": "Endangered",
+      "projects": ["Project Tiger"]
+    }
+  ],
+  "projects": [
+    { "id": "proj-tiger", "name": "Project Tiger", "year": 1973, "type": "Govt" }
+  ]
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="rounded-2xl border border-white/10 p-6 mt-6 reveal">
+        <h3 class="font-semibold">UX Highlights</h3>
+        <p class="mt-2 text-sm text-slate-300">Global search with auto‑suggest, state/habitat filters, animated cards on scroll, and a guided learning path for students. Focus on clarity, discoverability, and performance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RESUME ===== -->
+  <section id="resume" class="py-20 bg-slate-900/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="reveal max-w-3xl">
+        <h2 class="text-3xl font-bold">Resume</h2>
+        <p class="mt-3 text-slate-300">Download my latest resume or preview it inline. Replace the file name below with your actual PDF name.</p>
+        <div class="mt-5 flex flex-wrap gap-3">
+          <a href="./Chandan_Kumar_Resume.pdf" download class="inline-flex items-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-700 px-5 py-3 text-sm font-semibold"><i class="fa-solid fa-download"></i> Download PDF</a>
+          <a href="#contact" class="inline-flex items-center gap-2 rounded-xl border border-white/10 px-5 py-3 text-sm font-semibold hover:bg-white/5"><i class="fa-solid fa-paper-plane"></i> Hire Me</a>
+        </div>
+      </div>
+      <div class="reveal mt-8 ring-1 ring-white/10 rounded-2xl overflow-hidden">
+        <iframe src="./Chandan_Kumar_Resume.pdf" title="Chandan Kumar Resume" class="w-full h-[70vh] bg-white"></iframe>
+      </div>
+      <div class="grid lg:grid-cols-3 gap-6 mt-10">
+        <div class="rounded-2xl border border-white/10 p-6 reveal">
+          <h3 class="font-semibold">Core Competencies</h3>
+          <ul class="mt-2 space-y-2 text-sm text-slate-300 list-disc list-inside">
+            <li>Frontend Engineering (React, Tailwind, A11y)</li>
+            <li>Responsive Design & Micro‑interactions</li>
+            <li>API Integration & JSON Schemas</li>
+            <li>Teaching & Mentorship</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border border-white/10 p-6 reveal">
+          <h3 class="font-semibold">Achievements</h3>
+          <ul class="mt-2 space-y-2 text-sm text-slate-300 list-disc list-inside">
+            <li>Built wildlife portal (MCA capstone)</li>
+            <li>Myntra clone & LMS with rich UI/UX</li>
+            <li>Guided 100+ students to finish projects</li>
+            <li>Active internships: InternPe & TECHOCTANET</li>
+          </ul>
+        </div>
+        <div class="rounded-2xl border border-white/10 p-6 reveal">
+          <h3 class="font-semibold">Contact</h3>
+          <ul class="mt-2 space-y-2 text-sm text-slate-300 list-none">
+            <li><i class="fa-solid fa-envelope mr-2 text-brand-300"></i> kumarchandan99990@gmail.com</li>
+            <li><i class="fa-solid fa-phone mr-2 text-brand-300"></i> +91 7909058148</li>
+            <li><i class="fa-solid fa-location-dot mr-2 text-brand-300"></i> Bhagalpur, Bihar</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="reveal max-w-2xl">
+        <h2 class="text-3xl font-bold">Let's Work Together</h2>
+        <p class="mt-3 text-slate-300">Have a project or a teaching opportunity? Send a message and I’ll get back to you.</p>
+      </div>
+      <form class="reveal mt-8 grid grid-cols-1 gap-4 max-w-2xl" action="https://formspree.io/f/your-id" method="POST">
+        <input required name="name" placeholder="Your Name" class="rounded-xl bg-slate-900/60 border border-white/10 px-4 py-3 outline-none focus:ring-2 focus:ring-brand-500" />
+        <input required type="email" name="email" placeholder="Your Email" class="rounded-xl bg-slate-900/60 border border-white/10 px-4 py-3 outline-none focus:ring-2 focus:ring-brand-500" />
+        <textarea required name="message" rows="5" placeholder="Your Message" class="rounded-xl bg-slate-900/60 border border-white/10 px-4 py-3 outline-none focus:ring-2 focus:ring-brand-500"></textarea>
+        <button class="justify-self-start inline-flex items-center gap-2 rounded-xl bg-brand-600 hover:bg-brand-700 px-5 py-3 text-sm font-semibold"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+      </form>
+      <div class="mt-6 text-sm text-slate-400">Or email: <a href="mailto:kumarchandan99990@gmail.com" class="text-brand-300 underline">kumarchandan99990@gmail.com</a></div>
+    </div>
+  </section>
+
+  <footer class="py-8 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-sm text-slate-400 flex flex-wrap gap-2 items-center justify-between">
+      <div>© <span id="year"></span> Chandan Kumar. All rights reserved.</div>
+      <div class="flex items-center gap-4">
+        <button id="themeBtnFooter" class="p-2 rounded-lg ring-1 ring-white/10 hover:ring-white/30" aria-label="Toggle theme"><i class="fa-solid fa-circle-half-stroke"></i></button>
+        <a href="#home" class="hover:text-brand-300">Back to top ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== TEMPLATES ===== -->
+  <template id="project-card">
+    <div class="group rounded-2xl border border-white/10 overflow-hidden bg-slate-900/50 hover:bg-slate-900/70 transition shadow-lg hover:shadow-glow cursor-pointer">
+      <div class="aspect-[16/10] overflow-hidden"><img class="w-full h-full object-cover group-hover:scale-105 transition duration-500" /></div>
+      <div class="p-5">
+        <div class="flex items-center justify-between"><h3 class="font-semibold"></h3><div class="text-[10px] uppercase tracking-wider text-brand-300"></div></div>
+        <p class="mt-2 text-sm text-slate-300"></p>
+        <a target="_blank" class="mt-3 inline-flex items-center gap-2 text-sm text-brand-300 hover:underline">Open <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i></a>
+      </div>
+    </div>
+  </template>
+
+  <template id="skill-bar">
+    <div>
+      <div class="flex items-center justify-between text-sm"><span class="label"></span><span class="value"></span>%</div>
+      <div class="h-2 mt-2 rounded-full bg-slate-800 overflow-hidden"><div class="bar h-full rounded-full bg-gradient-to-r from-brand-500 to-cyan-400 w-0"></div></div>
+    </div>
+  </template>
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // Theme toggle (persist)
+    const applyTheme = (dark) => document.documentElement.classList.toggle('dark', dark);
+    applyTheme(localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches));
+    const toggleTheme = () => { const isDark = document.documentElement.classList.toggle('dark'); localStorage.theme = isDark ? 'dark' : 'light'; };
+    document.getElementById('themeBtn')?.addEventListener('click', toggleTheme);
+    document.getElementById('themeBtnFooter')?.addEventListener('click', toggleTheme);
+
+    // Navbar glass on scroll + mobile menu
+    const navbar = document.getElementById('navbar');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const menuBtn = document.getElementById('menuBtn');
+    menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+    const onScroll = () => {
+      const scrolled = window.scrollY > 10;
+      navbar.className = (scrolled ? 'bg-slate-950/70 backdrop-blur border-b border-white/5 shadow-lg' : '') + ' transition-all';
+    };
+    window.addEventListener('scroll', onScroll); onScroll();
+
+    // Reveal animations on scroll
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target);} })
+    }, {threshold: 0.15});
+    revealEls.forEach(el=>io.observe(el));
+
+    // Counter up
+    const counters = document.querySelectorAll('.counter');
+    const io2 = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(!e.isIntersecting) return; const el=e.target; const end=+el.dataset.count; let cur=0; const step=Math.max(1, Math.round(end/60)); const tick=()=>{cur+=step; if(cur>=end){cur=end;} el.textContent=cur; if(cur<end) requestAnimationFrame(tick);}; tick(); io2.unobserve(el); })
+    }, {threshold: 0.6});
+    counters.forEach(c=>io2.observe(c));
+
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Project card component
+    function ProjectCard({title,img,tags,desc,link}){
+      const t = document.getElementById('project-card');
+      const node = t.content.cloneNode(true);
+      node.querySelector('img').src = img;
+      node.querySelector('h3').textContent = title;
+      node.querySelector('div.text-[10px]').textContent = tags;
+      node.querySelector('p').textContent = desc;
+      node.querySelector('a').href = link || '#';
+      return node;
+    }
+    // Skill bar component
+    function SkillBar({label,value}){
+      const t = document.getElementById('skill-bar');
+      const node = t.content.cloneNode(true);
+      node.querySelector('.label').textContent = label;
+      node.querySelector('.value').textContent = value;
+      const bar = node.querySelector('.bar');
+      requestAnimationFrame(()=>{ bar.style.width = value + '%'; });
+      return node;
+    }
+
+    // Hydrate <ProjectCard/> and <SkillBar/>
+    function hydrateCustomTags(){
+      document.querySelectorAll('ProjectCard').forEach(el=>{
+        const props = Object.fromEntries([...el.attributes].map(a=>[a.name,a.value]));
+        const node = ProjectCard(props);
+        el.replaceWith(node);
+      });
+      document.querySelectorAll('SkillBar').forEach(el=>{
+        const props = Object.fromEntries([...el.attributes].map(a=>[a.name,a.value]));
+        const node = SkillBar(props);
+        el.replaceWith(node);
+      });
+    }
+    hydrateCustomTags();
+  </script>
 </body>
-<script src="script.js"></script>
 </html>
